@@ -1,0 +1,38 @@
+<body>
+    <div class="container">
+        <header>
+            <h1>{{appTitle}} - {{appCaption}}</h1>
+            <label class="hide-buy">
+                <input type="checkbox" />
+                Buy
+            </label>
+            <label class="hide-sell">
+                <input type="checkbox" />
+                Sell
+            </label>
+            {{> loginButtons}}
+            {{#if currentUser}}
+                <form class="new-offer">
+                    <select name="games">
+                        <option value="cabal">Cabal</option>
+                    </select>
+                    <select name="servers">
+                        <option value="scorpio">Scorpio</option>
+                        <option value="virgo">Virgo</option>
+                    </select>
+                    <select name="want">
+                        <option value="buy">Buy</option>
+                        <option value="sell">Sell</option>
+                    </select>
+                    <input type="number" name="amount" placeholder="กี่เอ็ม" /><span>M</span>
+                    <input type="submit">
+                </form>
+            {{/if}}
+        </header>
+        <ul>
+            {{#each offers}}
+                {{> offer}}
+            {{/each}}
+        </ul>
+    </div>
+</body>
